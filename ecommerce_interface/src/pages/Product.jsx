@@ -24,11 +24,13 @@ const Product = () =>{
     useEffect(()=>{
             const getProduct = async ()=>{
                 try{
-                    const res = await publicRequest.get("/product/"+id)
+                    let res;
+                    await publicRequest.get("/product/"+id).then(r=>res=r).catch(err=>console.log(err))
                     setProduct(res.data);
                     setColor(res.data.color[0])
                     setSize(res.data.size[0])
                 } catch (err){
+                    console.log(err)
                 }
             };
             getProduct();
