@@ -43,8 +43,12 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) =>{
 //GET PRODUCT
 router.get("/:id", async (req, res) =>{
     try{
-        const product = await Product.findById(req.params.id);
-        res.status(200).json(product);
+        await Product.findById(req.params.id).then(product=>{
+            res.status(200).json(product);
+        })
+            .catch(err =>{
+                res.status(500).json(err);
+            })
     }catch (err){
         res.status(500).json(err);
     }
@@ -56,17 +60,26 @@ router.get("/category/:category", async (req, res) =>{
     try{
         let products
         if(qNew){
-           products = await Product.find({
+            await Product.find({
                 categories: {
                     $in: req.params.category,
                 },
+            }).then(p=>{
+                products=p;
+            }).catch(err =>{
+                res.status(500).json(err);
             });
         }else {
-            products = await Product.find({
+            await Product.find({
                 categories: {
                     $in: req.params.category,
                 },
-            }).sort({createdAt: -1}).limit(3);
+            }).sort({createdAt: -1}).limit(3)
+                .then(p=>{
+                    products=p;
+                }).catch(err =>{
+                    res.status(500).json(err);
+                });
         }
 
         res.status(200).json(products);
@@ -83,23 +96,36 @@ router.get("/", async (req, res) =>{
     try{
         let products;
         if(query){
-            products = await Product.find({
+            await Product.find({
                     $text: {
                         $search: query
                     }
                 }
             )
-        } else if(qNew){
-            products = await Product.find().sort({createdAt: -1}).limit(3);
-        } else{
-            products = await Product.find().catch((err)=>{
-                console.log(err);
-                res.status(500).json(err)});
-        }
+                .then(p=>{
+                    products=p;
+                }).catch(err =>{
+                    res.status(500).json(err);
+                });
 
+        } else if(qNew){
+            await Product.find().sort({createdAt: -1}).limit(3)
+                .then(p=>{
+                    products=p;
+                }).catch(err =>{
+                    res.status(500).json(err);
+                });
+        } else {
+            await Product.find()
+                .then(p => {
+                    products = p;
+                })
+                .catch(err => {
+                    res.status(500).json(err);
+                });
+        }
         res.status(200).json(products);
     }catch (err){
-        console.log(err);
         res.status(500).json(err);
     }
 })
