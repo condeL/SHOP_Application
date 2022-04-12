@@ -1,2 +1,2 @@
-# SHOP_Application
-Fullstack React eceommerce demo site
+# SHOP Application
+Fullstack React E-commerce demo site
