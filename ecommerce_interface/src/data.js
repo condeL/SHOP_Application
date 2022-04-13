@@ -1,22 +1,22 @@
 export const sliderItems=[
     {
         id:1,
-        img:"https://i5.walmartimages.com/asr/2c00b6b5-d826-49ba-8eb4-b851239e70b4_1.123fbf4b7067684b2201d793f1ef738c.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        title:"CHARMANDER",
+        img:"https://i.ibb.co/KqYKLbJ/charmander-doll.png",
+        title:"CHARMANDER DOLL",
         description:"BROWSE OUR COLLECTION",
         bg:"red"
     },
     {
         id:2,
-        img:"https://www.clipartmax.com/png/full/23-232913_pokemon-png-bulbasaur-squirtle-ou-charmander.png",
-        title:"SQUIRTLE",
+        img:"https://i.ibb.co/yV956VH/squirtle-doll.png",
+        title:"SQUIRTLE DOLL",
         description:"BROWSE OUR COLLECTION",
         bg:"blue"
     },
     {
         id:3,
-        img:"https://i.pinimg.com/564x/9a/63/9e/9a639ec15d67f39185539743ad8cb485.jpg",
-        title:"BULBASAUR",
+        img:"https://i.ibb.co/VHp5Wnx/bulbasaur-doll.png",
+        title:"BULBASAUR DOLL",
         description:"BROWSE OUR COLLECTION",
         bg:"green"
     },
