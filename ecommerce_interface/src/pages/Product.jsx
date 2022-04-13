@@ -50,6 +50,7 @@ const Product = () =>{
         setOpenAlert(true);
     }
 
+
     const handleAlertClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -77,9 +78,12 @@ const Product = () =>{
                         <Box sx={{display:"flex", alignItems:"center"}}>
                             <Typography variant="h4" sx={{fontWeight:400}}>Color</Typography>
                             {product.color?.map((c) =>(
-                                <Box sx={{width: "20px",
-                                    height: "20px",
+                                <Box sx={{width:color===c? "25px" : "20px",
+                                    height: color===c? "25px" : "20px",
+                                    borderStyle:color===c? "solid" : "none",
                                     borderRadius: "50%",
+                                    borderWidth:"2px",
+                                    borderColor:color===c? "yellow" : "none",
                                     backgroundColor: c,
                                     margin: "0px 5px",
                                     cursor: "pointer"}} key={c} onClick={()=> setColor(c)}/>
@@ -122,7 +126,7 @@ const Product = () =>{
             </Box>
             <Box sx={{marginBottom:"16px"}}>
                 <Typography textAlign="center" variant="h2" sx={{fontWeight:500,marginBottom:"8px"}}>Related Products</Typography>
-                <Products category={product.categories? product?.categories[1]: ""} news={true}/>
+                <Products rows={1} category={product.categories? product?.categories[1]: ""}/>
             </Box>
             <Footer/>
             <Snackbar open={openAlert} autoHideDuration={4000} onClose={handleAlertClose}>
