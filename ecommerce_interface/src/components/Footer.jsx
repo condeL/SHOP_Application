@@ -13,7 +13,7 @@ const Footer = () =>{
                     <Typography variant="h3" display="inline" sx={{fontWeight:500}}>CONDE</Typography>
                     <Typography variant="h3" display="inline" color="primary" sx={{fontWeight:500}}>L</Typography>
                 </Box>
-                <Typography sx={{  margin: "20px 0px",fontWeight:500}}>Fullstack React demo site</Typography>
+                <Typography sx={{  margin: "20px 0px",fontWeight:500}}>Fullstack React Demo Site</Typography>
                 <Box sx={{display:"flex"}}>
                     <IconButton disableRipple component={Link} href="https://www.facebook.com" rel="noopener noreferrer" sx={{backgroundColor:"blue", color:"white", marginRight: "10px"}}>
                         <Facebook/>

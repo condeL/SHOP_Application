@@ -79,10 +79,10 @@ const Product = ({item}) => {
                         flexDirection:"column",
                         position: "relative"
                          }}>
-                        <Box sx={{width: "175px", height: "175px", borderRadius: "50%",position: "absolute", backgroundColor: "white"}}/>
+                        <Box sx={{width: "240px", height: "240px", borderRadius: "50%",position: "absolute", backgroundColor: "white"}}/>
                         <Box component="img" src={item.img} sx={{height: "90%", objectFit: "cover",zIndex: 2}}/>
                     </Box>
-                    <Box sx={{display:"flex", alignItems:"center", flexDirection:"column", marginBottom:"4px"}}>
+                    <Box sx={{display:"flex", alignItems:"center", flexDirection:"column", marginTop:"4px", marginBottom:"4px"}}>
                         <Typography variant="h5" >{item.title}</Typography>
                         <Typography variant="h3">{item.price}$</Typography>
                     </Box>

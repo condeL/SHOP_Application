@@ -62,7 +62,7 @@ const Slider = () =>{
                             <Box component="img" src={item.img} sx={{height: {xs:"250px", md:"500px"}}}/>
                         </Box>
                         <Box sx={{flex:1, display:"flex", flexDirection:"column", alignItems: {xs:"center",md:"start"}}}>
-                            <Typography variant="h1" sx={{fontWeight:500, display: {xs:"none", md:"initial"}}}>{item.title}</Typography>
+                            <Typography variant="h1" sx={{fontWeight:500,textAlign: {xs:"center", md:"start"}}}>{item.title}</Typography>
                             <Typography variant="h2" sx={{margin:"25px 0", fontWeight:500, textAlign: {xs:"center", md:"start"}}}>{item.description}</Typography>
                             <Link to={"/products/category/plushie"} style={{ textDecoration: 'none', color:"inherit" }}>
                                 <Button variant="contained" sx={{backgroundColor: item.bg ,":hover":{backgroundColor:"dark"+item.bg}}}>SEE MORE</Button>

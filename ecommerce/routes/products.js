@@ -4,7 +4,7 @@ const Product = require("../models/Product");
 const router = express.Router();
 
 //CREATE PRODUCT
-router.post("/", verifyTokenAndAdmin, async (req, res) =>{
+router.post("/", async (req, res) =>{
     const newProduct = new Product(req.body);
 
     try{
@@ -64,17 +64,18 @@ router.get("/category/:category", async (req, res) =>{
                 categories: {
                     $in: req.params.category,
                 },
-            }).then(p=>{
-                products=p;
-            }).catch(err =>{
-                res.status(500).json(err);
-            });
+            }).sort({createdAt: -1}).limit(3)
+                .then(p=>{
+                    products=p;
+                }).catch(err =>{
+                    res.status(500).json(err);
+                });
         }else {
             await Product.find({
                 categories: {
                     $in: req.params.category,
                 },
-            }).sort({createdAt: -1}).limit(3)
+            })
                 .then(p=>{
                     products=p;
                 }).catch(err =>{

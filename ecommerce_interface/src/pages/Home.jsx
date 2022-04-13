@@ -18,7 +18,7 @@ const Home = () => {
                 justifyContent: "center"}}>
                 <Typography variant="h1"  sx={{margin: "10px 0px", fontWeight:500}}>LATEST ARRIVALS</Typography>
             </Box>
-            <Products/>
+            <Products news={true}/>
             <Newsletter/>
             <Footer/>
         </div>
