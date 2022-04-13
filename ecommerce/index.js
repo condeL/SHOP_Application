@@ -22,11 +22,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use("/api/user", userRoute)
-app.use("/api/auth", authRoute)
+
 app.use("/api/product", productRoute)
-app.use("/api/cart", cartRoute)
-app.use("/api/order", orderRoute)
+
 
 app.listen(process.env.PORT || 8080, ()=>{
     console.log("Server started on port 8080");
