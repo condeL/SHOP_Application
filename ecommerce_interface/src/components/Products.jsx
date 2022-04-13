@@ -97,7 +97,7 @@ const Products = ({query, news, category, filters, sort, rows}) => {
         if(rows>1) {
             document.documentElement.scrollTo(0, 0);
         }
-    }, [page]);
+    }, [page, rows]);
 
     const handlePageChange = (event, value) => {
         setPage(value);
