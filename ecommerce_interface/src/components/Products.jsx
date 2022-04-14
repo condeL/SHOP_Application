@@ -15,12 +15,15 @@ const Products = ({query, news, category, filters, sort, rows}) => {
             try{
                 let res;
                 if(category){
-                    await publicRequest.get(`/product/category/${category}`).then(r=>res=r).catch(err=>console.log(err))
+                    news?
+                        await publicRequest.get(`/product/related`,{params: {categories:category}}).then(r=>res=r).catch(err=>console.log(err))
+                        :
+                        await publicRequest.get(`/product/category/${category}`).then(r=>res=r).catch(err=>console.log(err))
                 } else if(query){
-                    await publicRequest.get(`/product/`, {params: {q:query}}).then(r=>res=r).catch(err=>console.log(err));
+                    await publicRequest.get(`/product`, {params: {q:query}}).then(r=>res=r).catch(err=>console.log(err));
                 }
                 else if(news){
-                    await publicRequest.get("/product?new=true").then(r=>res=r).catch(err=>console.log(err));
+                    await publicRequest.get("/product",{params: {new:news}}).then(r=>res=r).catch(err=>console.log(err));
                 } else{
                     await publicRequest.get("/product").then(r=>res=r).catch(err=>console.log(err));
                 }

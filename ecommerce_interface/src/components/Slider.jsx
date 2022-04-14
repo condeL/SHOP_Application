@@ -1,6 +1,6 @@
 import {ArrowBack, ArrowForward} from "@mui/icons-material";
 import {sliderItems} from "../data";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { styled } from '@mui/system';
 import {Box, Button, Typography} from "@mui/material";
 import sx from "@mui/system/sx";
@@ -36,7 +36,19 @@ const Wrapper = styled(Box)((props)=>(sx({
 
 
 const Slider = () =>{
-    const [slideIndex, setSlideIndex] = useState(0)
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    //slide autoplay
+    useEffect(()=>{
+        let intervalID = setInterval(()=>{
+            setSlideIndex(slideIndex < 2? slideIndex+1 : 0)
+        }, 3000)
+        return()=>{
+            clearInterval(intervalID);
+        }
+    })
+
+    //manual slide change
     const handleClick = (direction) =>{
         if(direction==="left"){
             setSlideIndex(slideIndex > 0? slideIndex-1 : 2)
