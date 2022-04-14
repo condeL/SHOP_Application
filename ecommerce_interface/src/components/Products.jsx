@@ -15,7 +15,6 @@ const Products = ({query, news, category, filters, sort, rows}) => {
             try{
                 let res;
                 if(category){
-                    console.log(category)
                     news?
                         await publicRequest.get(`/product/related`,{params: {categories:category}}).then(r=>res=r).catch(err=>console.log(err))
                         :
