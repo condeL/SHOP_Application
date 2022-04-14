@@ -126,7 +126,7 @@ const Product = () =>{
             </Box>
             <Box sx={{marginBottom:"16px"}}>
                 <Typography textAlign="center" variant="h2" sx={{fontWeight:500,marginBottom:"8px"}}>Related Products</Typography>
-                <Products rows={1} category={product.categories? product?.categories[1]: ""}/>
+                <Products rows={1} news={true} category={product.categories? product.categories.slice(1,product.categories.length): "plushie"}/>
             </Box>
             <Footer/>
             <Snackbar open={openAlert} autoHideDuration={4000} onClose={handleAlertClose}>

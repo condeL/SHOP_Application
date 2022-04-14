@@ -4,7 +4,7 @@ const Product = require("../models/Product");
 const router = express.Router();
 
 //CREATE PRODUCT
-router.post("/", async (req, res) =>{
+router.post("/",verifyTokenAndAdmin, async (req, res) =>{
     const newProduct = new Product(req.body);
 
     try{
@@ -40,6 +40,30 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) =>{
     }
 })
 
+//GET PRODUCTS BY RELATED CATEGORIES
+router.get("/related", async (req, res) =>{
+    const qCategories = req.query.categories;
+    try{
+        let products
+        await Product.find({
+            categories: {
+                $in: qCategories,
+            },
+        }).limit(9)
+            .then(p=>{
+                products=p;
+            }).catch(err =>{
+                console.log(err);
+                res.status(500).json(err);
+            });
+
+        res.status(200).json(products);
+
+    }catch (err){
+        res.status(500).json(err);
+    }
+})
+
 //GET PRODUCT
 router.get("/:id", async (req, res) =>{
     try{
@@ -47,6 +71,7 @@ router.get("/:id", async (req, res) =>{
             res.status(200).json(product);
         })
             .catch(err =>{
+                console.log(err);
                 res.status(500).json(err);
             })
     }catch (err){
@@ -56,32 +81,20 @@ router.get("/:id", async (req, res) =>{
 
 //GET PRODUCTS BY CATEGORY
 router.get("/category/:category", async (req, res) =>{
-    const qNew = req.query.new;
     try{
         let products
-        if(qNew){
-            await Product.find({
-                categories: {
-                    $in: req.params.category,
-                },
-            }).sort({createdAt: -1}).limit(3)
-                .then(p=>{
-                    products=p;
-                }).catch(err =>{
-                    res.status(500).json(err);
-                });
-        }else {
-            await Product.find({
-                categories: {
-                    $in: req.params.category,
-                },
-            })
-                .then(p=>{
-                    products=p;
-                }).catch(err =>{
-                    res.status(500).json(err);
-                });
-        }
+
+        await Product.find({
+            categories: {
+                $in: req.params.category,
+            },
+        })
+            .then(p=>{
+                products=p;
+            }).catch(err =>{
+                console.log(err);
+                res.status(500).json(err);
+            });
 
         res.status(200).json(products);
 
@@ -89,6 +102,8 @@ router.get("/category/:category", async (req, res) =>{
         res.status(500).json(err);
     }
 })
+
+
 
 //GET ALL PRODUCTS
 router.get("/", async (req, res) =>{
@@ -106,6 +121,7 @@ router.get("/", async (req, res) =>{
                 .then(p=>{
                     products=p;
                 }).catch(err =>{
+                    console.log(err);
                     res.status(500).json(err);
                 });
 
@@ -114,6 +130,7 @@ router.get("/", async (req, res) =>{
                 .then(p=>{
                     products=p;
                 }).catch(err =>{
+                    console.log(err);
                     res.status(500).json(err);
                 });
         } else {
@@ -122,6 +139,7 @@ router.get("/", async (req, res) =>{
                     products = p;
                 })
                 .catch(err => {
+                    console.log(err);
                     res.status(500).json(err);
                 });
         }
