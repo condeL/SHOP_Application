@@ -71,11 +71,11 @@ const Product = () =>{
                     <Typography variant="h2" textAlign="center" sx={{fontWeight:500}}>{product.title}</Typography>
                     <Typography variant="h4" textAlign="center" sx={{padding:"20px 0px"}}>{product.desc}</Typography>
                     <Typography variant="h3" textAlign="center">{product.price}$</Typography>
-                    <Box sx={{width: "50%",
+                    <Box sx={{
                         margin:"30px 0px",
                         display: "flex",
                         justifyContent: "space-between"}}>
-                        <Box sx={{display:"flex", alignItems:"center"}}>
+                        <Box sx={{display:"flex", alignItems:"center", marginRight:"8px"}}>
                             <Typography variant="h4" sx={{fontWeight:400}}>Color</Typography>
                             {product.color?.map((c) =>(
                                 <Box sx={{width:color===c? "25px" : "20px",

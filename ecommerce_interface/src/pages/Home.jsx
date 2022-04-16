@@ -16,7 +16,7 @@ const Home = () => {
             <Box sx={{
                 display: "flex",
                 justifyContent: "center"}}>
-                <Typography variant="h1"  sx={{margin: "10px 0px", fontWeight:500}}>LATEST ARRIVALS</Typography>
+                <Typography variant="h1" textAlign="center" sx={{margin: "10px 0px", fontWeight:500}}>LATEST ARRIVALS</Typography>
             </Box>
             <Products news={true}/>
             <Newsletter/>

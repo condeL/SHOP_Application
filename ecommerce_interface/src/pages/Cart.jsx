@@ -51,7 +51,7 @@ const Cart = () =>{
                                 <Box key={index} sx={{padding: "4px"}}>
                                     <Divider variant="middle"/>
                                     <Box sx={{display:"flex", justifyContent:"space-between", padding:"8px",flexDirection:{
-                                            xs:"column-reverse",
+                                            xs:"column",
                                             md:"row"}}}>
                                         <Box flex={2} display="flex" sx={{flexDirection:{
                                                 xs:"column",
