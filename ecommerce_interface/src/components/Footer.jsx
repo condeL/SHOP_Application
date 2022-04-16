@@ -27,19 +27,19 @@ const Footer = () =>{
                 </Box>
             </Box>
             <Box flexGrow={0.1}>
-            <Divider orientation={matches?"horizontal": "vertical"} variant="middle"/>
+                <Divider orientation={matches?"horizontal": "vertical"} />
             </Box>
-            <Box flexGrow={0.5} sx={{ padding:"20px 0px 20px 20px", display:{xs:"none", md:"initial"}}}>
+            <Box flexGrow={0.5} sx={{ padding:"20px 0px 20px 20px"}}>
                 <Typography variant="h3" sx={{ marginBottom: "30px",fontWeight:500}}>Useful Links</Typography>
                 <Grid container component={List}>
-                    <Grid item xs={12} md={6} component={ListItem}>Bulbasaur</Grid>
-                    <Grid item xs={12} md={6} component={ListItem}>Charmander</Grid>
-                    <Grid item xs={12} md={6} component={ListItem}>Squirtle</Grid>
-                    <Grid item xs={12} md={6} component={ListItem}>Pikachu</Grid>
+                    <Grid item xs={12} md={6} component={ListItem}>About Us</Grid>
+                    <Grid item xs={12} md={6} component={ListItem}>Terms and Conditions</Grid>
+                    <Grid item xs={12} md={6} component={ListItem}>Return Policy</Grid>
+                    <Grid item xs={12} md={6} component={ListItem}>Help Center</Grid>
                 </Grid>
             </Box>
-            <Box flexGrow={0.1} sx={{display:{xs:"none", md:"initial"}}}>
-                <Divider orientation="vertical"/>
+            <Box flexGrow={0.1} >
+                <Divider orientation={matches?"horizontal": "vertical"}/>
             </Box>
             <Box flexGrow={1} sx={{padding: "20px"}}>
                 <Typography variant="h3" sx={{ marginBottom: "30px",fontWeight:500}}>Contact</Typography>

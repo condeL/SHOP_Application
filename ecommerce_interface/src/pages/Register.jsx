@@ -28,7 +28,7 @@ const Register = () =>{
                 alignItems: "center",
                 justifyContent: "center"}}>
                 <Paper sx={{width:{xs:"80%", md:"50%"}, padding:"20px", margin:"20px 0"}}>
-                    <Typography variant="h2" sx={{fontWeight: 500, marginBottom:"16px"}}>CREATE AN ACCOUNT</Typography>
+                    <Typography textAlign="center" variant="h2" sx={{fontWeight: 500, marginBottom:"16px"}}>CREATE AN ACCOUNT</Typography>
                     <Grid container component="form" spacing={2}>
                         <Grid item xs={12} md={6} component={TextField} placeholder="Name" fullWidth />
                         <Grid item xs={12} md={6} component={TextField} placeholder="Last name" fullWidth />
@@ -36,9 +36,11 @@ const Register = () =>{
                         <Grid item xs={12} md={6} component={TextField} placeholder="Email" fullWidth />
                         <Grid item xs={12} md={6} component={TextField} placeholder="Password" fullWidth />
                         <Grid item xs={12} md={6} component={TextField} placeholder="Confirm" fullWidth />
-                        <Typography sx={{margin: "20px 10px"}}>By creating an account, I consent to the processing of my personal data in accordance with the <b>PRIVACY POLICY</b></Typography>
-                        <Button variant="contained" type="submit" onClick={handleRegister} sx={{width:"40%", padding: "15px 20px", marginLeft:"10px"}}>CREATE</Button>
                     </Grid>
+                    <Typography sx={{margin: "20px 10px"}}>By creating an account, I consent to the processing of my personal data in accordance with the <b>PRIVACY POLICY</b>.</Typography>
+                    <Box display="flex" justifyContent="center">
+                        <Button variant="contained" type="submit" onClick={handleRegister} sx={{width:"40%", padding: "15px 20px", marginLeft:"10px"}}>CREATE</Button>
+                    </Box>
                 </Paper>
             </Box>
             <Snackbar open={openAlert} autoHideDuration={4000} onClose={handleAlertClose}>

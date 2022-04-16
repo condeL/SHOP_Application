@@ -35,15 +35,17 @@ const Login = () =>{
                 alignItems: "center",
                 justifyContent: "center"}}>
                 <Paper sx={{width:{xs:"80%", md:"50%"}, padding:"20px", margin:"20px 0"}}>
-                    <Typography variant="h2" sx={{fontWeight: 500, marginBottom:"16px"}}>SIGN IN</Typography>
+                    <Typography variant="h2" textAlign="center" sx={{fontWeight: 500, marginBottom:"16px"}}>SIGN IN</Typography>
                     <Grid container component="form" spacing={2}>
                         <Grid item xs={12} md={6} component={TextField} placeholder="Username" fullWidth
                               onChange={(e)=>setUsername(e.target.value)}/>
                         <Grid item xs={12} md={6} component={TextField} placeholder="Password" type="password" fullWidth
                               onChange={(e)=>setPassword(e.target.value)}/>
-                        <Button variant="contained" onClick={handleLogin} sx={{width:"40%", padding: "15px 20px",margin: "16px"}}>LOG IN</Button>
                     </Grid>
-                    <Box display="flex">
+                    <Box display="flex" justifyContent="center">
+                        <Button variant="contained" onClick={handleLogin} sx={{width:"40%", padding: "15px 20px",margin: "16px"}}>LOG IN</Button>
+                    </Box>
+                    <Box display="flex" justifyContent="center">
                         <Link to={"/"} style={{marginRight: "8px"}}>Forgot your password?</Link>
                         <Link to={"/register"}>Create new account.</Link>
                     </Box>

@@ -1,21 +1,21 @@
 export const sliderItems=[
     {
         id:1,
-        img:"https://i.ibb.co/KqYKLbJ/charmander-doll.png",
+        img:"https://i.imgur.com/H5HQ3Op.png",
         title:"CHARMANDER DOLL",
         description:"BROWSE OUR SELECTION",
         bg:"red"
     },
     {
         id:2,
-        img:"https://i.ibb.co/yV956VH/squirtle-doll.png",
+        img:"https://i.imgur.com/f8Gkdtk.png",
         title:"SQUIRTLE DOLL",
         description:"BROWSE OUR SELECTION",
         bg:"blue"
     },
     {
         id:3,
-        img:"https://i.ibb.co/VHp5Wnx/bulbasaur-doll.png",
+        img:"https://i.imgur.com/q8DZn9q.png",
         title:"BULBASAUR DOLL",
         description:"BROWSE OUR SELECTION",
         bg:"green"
