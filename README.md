@@ -1,4 +1,4 @@
 # SHOP Application
 Fullstack MERN E-commerce demo site
 
-https://my-app-f6o4p.ondigitalocean.app
+[https://shop.demo.lancineconde.tech](https://shop.demo.lancineconde.tech)
